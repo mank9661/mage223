@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category    DragDropr
+ * @package     DragDropr_Magento2
+ * @author      Ricards Zalitis with THANKS to atipso GmbH <hello@dragdropr.com>
+ * @copyright   2018 atipso GmbH
+ * @license     http://license.mageshops.com/  Unlimited Commercial License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Integration:etc/integration/integration.xsd">
+    <integration name="DragDropr">
+        <email>office@nnpro.at</email>
+        <endpoint_url>https://app.dragdropr.com/magento-2-install</endpoint_url>
+        <identity_link_url>https://app.dragdropr.com/magento-2-login</identity_link_url>
+        <resources>
+            <!--Common resource-->
+
+            <resource name="Magento_Backend::admin"/>
+
+            <!--Read products and read, write categories-->
+
+            <resource name="Magento_Catalog::catalog"/>
+            <resource name="Magento_Catalog::catalog_inventory"/>
+            <resource name="Magento_Catalog::products"/>
+            <resource name="Magento_Catalog::categories"/>
+
+            <!--Read, write pages and blocks-->
+
+            <resource name="Magento_Backend::content"/>
+            <resource name="Magento_Backend::content_elements"/>
+            <resource name="Magento_Cms::page"/>
+            <resource name="Magento_Cms::save"/>
+            <resource name="Magento_Cms::page_delete"/>
+            <resource name="Magento_Cms::block"/>
+
+            <!--DragDropr related permissions-->
+
+            <resource name="DragDropr_Magento2::base"/>
+            <resource name="DragDropr_Magento2::settings"/>
+            <resource name="DragDropr_Magento2::config"/>
+
+            <!--Read store view-->
+
+            <!--Read store view-->
+
+            <resource name="Magento_Backend::stores"/>
+            <resource name="Magento_Backend::stores_settings"/>
+            <resource name="Magento_Backend::store"/>
+        </resources>
+    </integration>
+</config>

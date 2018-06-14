@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category    DragDropr
+ * @package     DragDropr_Magento2
+ * @author      Ricards Zalitis with THANKS to atipso GmbH <hello@dragdropr.com>
+ * @copyright   2018 atipso GmbH
+ * @license     http://license.mageshops.com/  Unlimited Commercial License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="dragdropr" sortOrder="99999" class="dragdropr-tab">
+            <label>DragDropr</label>
+        </tab>
+        <section id="dragdropr_config" translate="title" sortOrder="1" showInDefault="1">
+            <tab>dragdropr</tab>
+            <label>Configuration</label>
+            <resource>DragDropr_Magento2::config</resource>
+            <group id="general" sortOrder="10" showInDefault="1">
+                <label>General</label>
+                <field id="is_enabled" translate="label" type="select" sortOrder="1" showInDefault="1" canRestore="1">
+                    <label>Enable DragDropr</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="integration_test" sortOrder="20" showInDefault="1">
+                <label>Developer</label>
+                <field id="is_enabled" translate="label" type="select" sortOrder="10" showInDefault="1" canRestore="1">
+                    <label>Enable Testing Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>DragDropr Is Activated Without Connecting To DragDropr</comment>
+                </field>
+                <field id="testing_mode" translate="label" type="select" sortOrder="20" showInDefault="1">
+                    <label>Testing Mode</label>
+                    <source_model>DragDropr\Magento2\Model\System\Config\Source\TestingEnvironments</source_model>
+                    <comment>Testing Environments:
+                        1. `Internal` - token exchange is done against internal links
+                        2. `External` - provides the most customization options
+                    </comment>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="identity_link" translate="label" type="text" sortOrder="30" showInDefault="1" canRestore="1">
+                    <label>Identity Link</label>
+                    <comment>
+                        Identity Link To Use. Default is `https://app.dragdropr.com/magento-2-login`. Leave Blank Or Disable `External Testing Mode` To Use Default Values.
+                    </comment>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                        <field id="testing_mode">external</field>
+                    </depends>
+                </field>
+                <field id="endpoint" translate="label" type="text" sortOrder="40" showInDefault="1" canRestore="1">
+                    <label>Endpoint</label>
+                    <comment>
+                        Endpoint Link To Use. Default is `https://app.dragdropr.com/magento-2-install`. Leave Blank Or Disable `External Testing Mode` To Use Default Values.
+                    </comment>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                        <field id="testing_mode">external</field>
+                    </depends>
+                </field>
+                <field id="page_endpoint" translate="label" type="text" sortOrder="50" showInDefault="1" canRestore="1">
+                    <label>CMS Page Endpoint</label>
+                    <comment>
+                        Endpoint Link To Use For Page Entity. Default is `https://app.dragdropr.com/magento-2/pages/${identifier}/?domain=${storeUrl}`. Leave Blank To Use Default Values.
+                    </comment>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="category_endpoint" translate="label" type="text" sortOrder="60" showInDefault="1" canRestore="1">
+                    <label>Categories Endpoint</label>
+                    <comment>
+                        Endpoint Link To Use For Category Entity. Default is `https://app.dragdropr.com/magento-2/categories/${identifier}/?domain=${storeUrl}&amp;parentId=${parentId}&amp;storeId=${storeId}`. Leave Blank To Use Default Values.
+                    </comment>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="default_endpoint" translate="label" type="text" sortOrder="70" showInDefault="1" canRestore="1">
+                    <label>Default Endpoint</label>
+                    <comment>
+                        Endpoint Link To Use For Default Entity. Default is `https://app.dragdropr.com/magento-2/editor/pages/${identifier}/?domain=${storeUrl}`. Leave Blank To Use Default Values.
+                    </comment>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

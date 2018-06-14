@@ -1,0 +1,28 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+		<referenceContainer name="after.body.start">
+			<block class="Magento\Framework\View\Element\Template" name="spacer" before="-" template="Magento_Theme::spacer.phtml" after="-"/>
+		</referenceContainer>
+		
+		<referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo.png</argument>
+                <argument name="logo_img_width" xsi:type="number">100</argument>
+                <argument name="logo_img_height" xsi:type="number">50</argument>
+            </arguments>
+        </referenceBlock>
+		<referenceBlock name="advanced-search-link" remove="true"/>
+		
+		<referenceBlock name="store.menu">
+			<block class="Magento\Theme\Block\Html\Topmenu" name="catalog.topnav" template="Magento_Theme::html/topmenu.phtml" before="-"/>
+		</referenceBlock>
+		
+		<referenceBlock name="catalog.compare.sidebar" remove="true"/>
+		<referenceBlock name="catalog.compare.link" remove="true"/>
+		<referenceBlock name="related.product.addto.compare" remove="true"/>
+		<referenceBlock name="view.addto.compare" remove="true"/>
+		<referenceBlock name="upsell.product.addto.compare" remove="true"/>
+		<referenceContainer name="sidebar.additional" remove="true" />
+		<referenceBlock name="advanced-search-link" remove="true"/>
+    </body>
+</page>

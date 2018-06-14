@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category    DragDropr
+ * @package     DragDropr_Magento2
+ * @author      Ricards Zalitis with THANKS to atipso GmbH <hello@dragdropr.com>
+ * @copyright   2018 atipso GmbH
+ * @license     http://license.mageshops.com/  Unlimited Commercial License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="DragDropr_Magento2::base" title="DragDropr">
+                    <resource id="DragDropr_Magento2::settings" title="Settings" translate="title">
+                        <resource id="DragDropr_Magento2::config" title="Configuration" translate="title"/>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

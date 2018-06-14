@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category    DragDropr
+ * @package     DragDropr_Magento2
+ * @author      Ricards Zalitis with THANKS to atipso GmbH <hello@dragdropr.com>
+ * @copyright   2018 atipso GmbH
+ * @license     http://license.mageshops.com/  Unlimited Commercial License
+ */
+-->
+<integrations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Integration:etc/integration/config.xsd">
+    <integration name="DragDropr">
+        <email>office@nnpro.at</email>
+        <endpoint_url>https://app.dragdropr.com/magento-2-install</endpoint_url>
+        <identity_link_url>https://app.dragdropr.com/magento-2-login</identity_link_url>
+    </integration>
+</integrations>

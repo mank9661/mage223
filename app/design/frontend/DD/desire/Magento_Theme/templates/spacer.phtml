@@ -1,0 +1,13 @@
+<script>
+require(['jquery'],function($){
+	$(window).scroll(function(){
+		if ($(window).scrollTop() >= 5) {
+			$('.page-header').addClass('fixed-header');
+		}
+		else {
+			$('.page-header').removeClass('fixed-header');
+		}
+	});
+})
+</script>
+<div class="spacer"></div>

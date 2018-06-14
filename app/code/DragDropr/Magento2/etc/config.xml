@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category    DragDropr
+ * @package     DragDropr_Magento2
+ * @author      Ricards Zalitis with THANKS to atipso GmbH <hello@dragdropr.com>
+ * @copyright   2018 atipso GmbH
+ * @license     http://license.mageshops.com/  Unlimited Commercial License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <dragdropr_config>
+            <general>
+                <is_enabled>1</is_enabled>
+                <page_endpoint>https://app.dragdropr.com/magento-2/pages/${identifier}/?domain=${storeUrl}</page_endpoint>
+                <category_endpoint>https://app.dragdropr.com/magento-2/categories/${identifier}/?domain=${storeUrl}&amp;parentId=${parentId}&amp;storeId=${storeId}</category_endpoint>
+                <default_endpoint>https://app.dragdropr.com/magento-2/editor/pages/${identifier}/?domain=${storeUrl}</default_endpoint>
+            </general>
+        </dragdropr_config>
+    </default>
+</config>

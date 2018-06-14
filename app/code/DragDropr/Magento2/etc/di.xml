@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category    DragDropr
+ * @package     DragDropr_Magento2
+ * @author      Ricards Zalitis with THANKS to atipso GmbH <hello@dragdropr.com>
+ * @copyright   2018 atipso GmbH
+ * @license     http://license.mageshops.com/  Unlimited Commercial License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!--Set preferences-->
+
+    <preference for="DragDropr\Magento2\Api\Wysiwyg\Plugin\DragDroprInterface" type="DragDropr\Magento2\Model\Wysiwyg\Plugin\DragDropr"/>
+    <preference for="DragDropr\Magento2\Api\Wysiwyg\Plugin\DragDropr\ConfigInterface" type="DragDropr\Magento2\Model\Wysiwyg\Plugin\DragDropr\Config"/>
+    <preference for="DragDropr\Magento2\Api\CategoryRepositoryInterface" type="DragDropr\Magento2\Model\CategoryRepository"/>
+    <preference for="DragDropr\Magento2\Api\Data\EnvironmentInterface" type="DragDropr\Magento2\Model\Data\Environment"/>
+    <preference for="DragDropr\Magento2\Api\Data\IntegrationInterface" type="DragDropr\Magento2\Model\Data\Integration"/>
+    <preference for="DragDropr\Magento2\Api\IntegrationConfigInterface" type="DragDropr\Magento2\Model\IntegrationConfig"/>
+
+    <!--Add "DragDropr" plugin config to dragdropr plugin-->
+
+    <type name="DragDropr\Magento2\Model\Wysiwyg\Plugin\DragDropr">
+        <arguments>
+            <argument name="config" xsi:type="object">DragDropr\Magento2\Model\Wysiwyg\Plugin\DragDropr\Config</argument>
+        </arguments>
+    </type>
+
+    <!--Prepend top level api resource so the integration are not reset without notable changes-->
+
+    <type name="Magento\Integration\Model\Config\Consolidated\Converter">
+        <plugin name="DragDropr_Magento2::ConverterPlugin"
+                type="DragDropr\Magento2\Plugin\Magento\Integration\Model\Config\Consolidated\ConverterPlugin"
+                disabled="false"/>
+    </type>
+</config>

@@ -1,0 +1,20 @@
+<?php
+/**
+ * @var $block \DragDropr\Magento2\Block\DataSource;
+ */
+;?>
+<script type="text/javascript">
+//<![CDATA[
+    require(['DragDropr_Magento2/js/dragdropr'], function () {
+        var dataSource = <?php echo json_encode($block->getConfig());?>,
+            setDataSource = function () {
+                if (window.DragDropr && window.DragDropr.getConfig) {
+                    window.DragDropr.getConfig().setDataSource(dataSource);
+                    document.removeEventListener('DragDropr.Config', setDataSource);
+                }
+            };
+        document.addEventListener('DragDropr.Config', setDataSource);
+        setDataSource();
+    });
+//]]>
+</script>

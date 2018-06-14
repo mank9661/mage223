@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category    DragDropr
+ * @package     DragDropr_Magento2
+ * @author      Ricards Zalitis with THANKS to atipso GmbH <hello@dragdropr.com>
+ * @copyright   2018 atipso GmbH
+ * @license     http://license.mageshops.com/  Unlimited Commercial License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="DragDropr_Magento2::base" title="DragDropr" module="DragDropr_Magento2" sortOrder="100" resource="DragDropr_Magento2::base"/>
+        <add id="DragDropr_Magento2::settings" title="Settings" translate="title" module="DragDropr_Magento2" sortOrder="10" parent="DragDropr_Magento2::base" resource="DragDropr_Magento2::settings"/>
+        <add id="DragDropr_Magento2::config" title="Configuration" translate="title" module="DragDropr_Magento2" sortOrder="10" parent="DragDropr_Magento2::settings" resource="DragDropr_Magento2::config" action="adminhtml/system_config/edit/section/dragdropr_config"/>
+    </menu>
+</config>

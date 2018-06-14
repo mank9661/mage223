@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category    DragDropr
+ * @package     DragDropr_Magento2
+ * @author      Ricards Zalitis with THANKS to atipso GmbH <hello@dragdropr.com>
+ * @copyright   2018 atipso GmbH
+ * @license     http://license.mageshops.com/  Unlimited Commercial License
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <!--Get DragDropr Config-->
+
+    <route url="/V1/dragdropr" method="GET">
+        <service class="DragDropr\Magento2\Api\Wysiwyg\Plugin\DragDroprInterface" method="getConfig"/>
+        <resources>
+            <resource ref="DragDropr_Magento2::config"/>
+        </resources>
+    </route>
+
+    <!-- Get DragDropr Api Key-->
+
+    <route url="/V1/dragdropr/api-key" method="GET">
+        <service class="DragDropr\Magento2\Api\Wysiwyg\Plugin\DragDropr\ConfigInterface" method="getApiKey"/>
+        <resources>
+            <resource ref="DragDropr_Magento2::config"/>
+        </resources>
+    </route>
+
+    <!--Set DragDropr Api Key-->
+
+    <route url="/V1/dragdropr/api-key" method="POST">
+        <service class="DragDropr\Magento2\Api\Wysiwyg\Plugin\DragDropr\ConfigInterface" method="setApiKey"/>
+        <resources>
+            <resource ref="DragDropr_Magento2::config"/>
+        </resources>
+    </route>
+
+    <!--Get DragDropr Integration-->
+
+    <route url="/V1/dragdropr/integration" method="GET">
+        <service class="DragDropr\Magento2\Api\Wysiwyg\Plugin\DragDropr\ConfigInterface" method="getIntegration"/>
+        <resources>
+            <resource ref="DragDropr_Magento2::config"/>
+        </resources>
+    </route>
+
+    <!--Disable DragDropr Integration-->
+
+    <route url="/V1/dragdropr/integration" method="DELETE">
+        <service class="DragDropr\Magento2\Api\Wysiwyg\Plugin\DragDropr\ConfigInterface" method="disableIntegration"/>
+        <resources>
+            <resource ref="DragDropr_Magento2::config"/>
+        </resources>
+    </route>
+
+    <!--Get root categories-->
+
+    <route url="/V1/categories/root" method="GET">
+        <service class="DragDropr\Magento2\Api\CategoryRepositoryInterface" method="getRootCategories"/>
+        <resources>
+            <resource ref="Magento_Catalog::categories"/>
+        </resources>
+    </route>
+</routes>

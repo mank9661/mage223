@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category    DragDropr
+ * @package     DragDropr_Magento2
+ * @author      Ricards Zalitis with THANKS to atipso GmbH <hello@dragdropr.com>
+ * @copyright   2018 atipso GmbH
+ * @license     http://license.mageshops.com/  Unlimited Commercial License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework/Module/etc/module.xsd">
+    <module name="DragDropr_Magento2" setup_version="1.0.0" >
+        <module name="Magento_Integration"/>
+        <module name="Magento_Cms"/>
+        <module name="Magento_Catalog"/>
+    </module>
+</config>

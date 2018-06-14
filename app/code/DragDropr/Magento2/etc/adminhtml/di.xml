@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category    DragDropr
+ * @package     DragDropr_Magento2
+ * @author      Ricards Zalitis with THANKS to atipso GmbH <hello@dragdropr.com>
+ * @copyright   2018 atipso GmbH
+ * @license     http://license.mageshops.com/  Unlimited Commercial License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--Register "DragDropr" plugin to be added to WYSIWYG configuration-->
+
+    <type name="DragDropr\Magento2\Plugin\Component\Wysiwyg\ConfigPlugin">
+        <arguments>
+            <argument name="additionalPlugins" xsi:type="array">
+                <item name="dragdropr" xsi:type="object">DragDropr\Magento2\Model\Wysiwyg\Plugin\DragDropr</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="DragDropr\Magento2\Plugin\Magento\Framework\Data\Form\Element\EditorPlugin">
+        <arguments>
+            <argument name="additionalPlugins" xsi:type="array">
+                <item name="dragdropr" xsi:type="object">DragDropr\Magento2\Model\Wysiwyg\Plugin\DragDropr</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="DragDropr\Magento2\Plugin\Magento\Catalog\Block\Adminhtml\Helper\Form\WysiwygPlugin">
+        <arguments>
+            <argument name="additionalPlugins" xsi:type="array">
+                <item name="dragdropr" xsi:type="object">DragDropr\Magento2\Model\Wysiwyg\Plugin\DragDropr</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!--Append additional plugin settings to WYSIWYG configuration-->
+
+    <type name="Magento\Ui\Component\Wysiwyg\ConfigInterface">
+        <plugin name="DragDropr_Magento2::ConfigPlugin" type="DragDropr\Magento2\Plugin\Component\Wysiwyg\ConfigPlugin" sortOrder="1" disabled="false"/>
+    </type>
+
+    <!--Support for version 2.0.*-->
+
+    <type name="Magento\Cms\Model\Wysiwyg\Config">
+        <plugin name="DragDropr_Magento2::ConfigPlugin" type="DragDropr\Magento2\Plugin\Component\Wysiwyg\ConfigPlugin" sortOrder="2" disabled="false"/>
+    </type>
+
+    <!--Always show plugin button on frontend-->
+
+    <type name="Magento\Framework\Data\Form\Element\Editor">
+        <plugin name="DragDropr_Magento2::EditorPlugin"
+                type="DragDropr\Magento2\Plugin\Magento\Framework\Data\Form\Element\EditorPlugin"
+                sortOrder="2"
+                disabled="false"/>
+    </type>
+
+    <!--Support for version 2.0.*-->
+
+    <type name="Magento\Catalog\Block\Adminhtml\Helper\Form\Wysiwyg">
+        <plugin name="DragDropr_Magento2::EditorPlugin"
+                type="DragDropr\Magento2\Plugin\Magento\Catalog\Block\Adminhtml\Helper\Form\WysiwygPlugin"
+                sortOrder="2"
+                disabled="false"/>
+    </type>
+</config>

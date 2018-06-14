@@ -1,0 +1,81 @@
+@import '_typography.less';
+@import '_buttons.less';
+
+
+& when (@media-common = true) {
+	body{
+		background-color:#f1f3f6;
+		font-family: 'Roboto Condensed', sans-serif;
+	}
+	.page-main {
+		background-color: #fff;
+		box-shadow: 3px 3px 5px 0 rgba(0,0,0,0.2);
+		padding: 20px;
+		margin-top:20px;
+	}
+	
+	// Message Blcok Css For Animation
+	
+	
+	@keyframes slidedown {
+	  from {
+		transform: translateY(-200px);
+	  }
+	  to {
+		transform: translateY(0px);
+	  }
+	}
+	@-webkit-keyframes slidedown {
+	  from {
+		transform: translateY(-200px);
+	  }
+	  to {
+		transform: translateY(0px);
+	  }
+	}
+	
+	
+	.page.messages {
+		position: fixed;
+		z-index: 98;
+		top: 140px;
+		left: 50%;
+		transform: translate(-50%,0);
+
+		.messages {
+			box-shadow: 0 0px 10px 0 rgba(0,0,0,0.3);
+			animation: slidedown 1s;
+			animation-iteration-count: 1;
+			-webkit-animation: slidedown 1s;
+			-webkit-animation-iteration-count: 1;
+		}
+		
+	}
+	
+	
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+	
+	
+	.breadcrumbs, .page-header .header.panel, .header.content, .footer.content, .page-wrapper > .widget, .page-wrapper > .page-bottom, .block.category.event, .top-container, .page-main{
+		max-width:calc(~'100% - 40px');
+	}
+	.product.data.items > .item.content{
+		border: 1px solid #d1d1d1;
+	}
+	.minicart-wrapper .block-minicart {
+		right: -20px;
+	}
+	.page-main > .page-title-wrapper .page-title {
+		display: block;
+		text-align: center;
+		padding-bottom: 20px;
+		border-bottom: 1px solid #f4f4f4;
+		margin-bottom: 20px;
+	}
+}
